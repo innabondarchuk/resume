@@ -103,6 +103,13 @@
                     </div>
                     <br />
                     <div>
+                      {{#if groups}}
+                        <h4>
+                          <span
+                            class='badge text-bg-warning'
+                          >groups:</span>
+                        </h4>
+                      {{/if}}
                       <ol type='1'>
                         {{#each groups}}
                           <li>
@@ -148,6 +155,13 @@
               </ol>
             </div>
             <div>
+              {{#if groups}}
+                <h3>
+                  <span
+                    class='badge text-bg-warning'
+                  >groups:</span>
+                </h3>
+              {{/if}}
               <ol type='1'>
                 {{#each groups}}
                   <li>
