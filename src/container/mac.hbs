@@ -1,0 +1,128 @@
+{{! 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+
+<div>
+  <header>
+    <div>
+      <div>
+        <h1>
+          <span class='badge text-bg-info'>{{name}}</span>
+        </h1>
+      </div>
+      <div>
+        <p><strong><em>{{description}}</em></strong></p>
+      </div>
+      <div>
+        <h2>
+          <span
+            class='badge text-bg-success'
+          >{{price}}$</span>
+        </h2>
+      </div>
+    </div>
+  </header>
+  <hr />
+  <main>
+    <div>
+      <ul>
+        {{#with features}}
+          <li>
+            <b>processor: </b>
+            {{processor.brand}},
+            {{processor.model}},
+            {{processor.speed}},
+            {{processor.cores}},
+            {{processor.cache}}
+          </li>
+          <br />
+          <li>
+            <b>memory: </b>
+            {{memory.type}},
+            {{memory.size}},
+            {{memory.speed}}
+          </li>
+          <br />
+          <li>
+            <b>storage: </b>
+            {{storage.type}},
+            {{storage.size}}
+          </li>
+          <br />
+          <li>
+            <b>display: </b>
+            {{display.size}},
+            {{display.resolution}},
+            {{display.technology}},
+            {{display.color_space}},
+            {{display.brightness}},
+            {{display.refresh_rate}}
+          </li>
+          <br />
+          <li>
+            <b>graphics: </b>
+            {{graphics.brand}},
+            {{graphics.model}},
+            {{graphics.memory}}
+          </li>
+          <br />
+          <li>
+            <b>ports: </b>
+            <ol type='1'>
+              {{#each ports}}
+                <li>
+                  {{type}},
+                  {{count}},
+                  {{#each features}} {{this}}, {{/each}}
+                </li>
+              {{/each}}
+            </ol>
+          </li>
+          <br />
+          <li>
+            <b>battery: </b>
+            {{battery.type}},
+            {{battery.capacity}},
+            {{battery.life}}
+          </li>
+          <br />
+          <li>
+            <b>weight: </b>
+            {{weight}}
+          </li>
+          <br />
+          <li>
+            <b>dimensions: </b>
+            {{dimensions.height}},
+            {{dimensions.width}},
+            {{dimensions.depth}}
+          </li>
+          <br />
+          <li>
+            <b>operating_system: </b>
+            {{operating_system}}
+          </li>
+          <br />
+          <li>
+            <b>accessories: </b>
+            <ol type='1'>
+              {{#each accessories}}
+                <li>
+                  {{name}}
+                  ({{price}}$)
+                </li>
+              {{/each}}
+            </ol>
+          </li>
+        {{/with}}
+      </ul>
+    </div>
+  </main>
+
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
