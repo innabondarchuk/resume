@@ -1,0 +1,289 @@
+{{! 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+
+<div>
+  <header>
+    <h1>
+      <span class='badge text-bg-dark'>
+        {{make}}
+        {{model}}
+        {{year}}
+        {{color}}
+      </span>
+    </h1>
+  </header>
+  <main>
+    <div
+      class='accordion accordion-flush'
+      id='accordionFlushExample'
+    >
+      <div class='accordion-item'>
+        <h2 class='accordion-header'>
+          <button
+            class='accordion-button collapsed'
+            type='button'
+            data-bs-toggle='collapse'
+            data-bs-target='#flush-collapseOne'
+            aria-expanded='false'
+            aria-controls='flush-collapseOne'
+          >
+            Features
+          </button>
+        </h2>
+        <div
+          id='flush-collapseOne'
+          class='accordion-collapse collapse'
+          data-bs-parent='#accordionFlushExample'
+        >
+          <div class='accordion-body'>
+            {{#with features}}
+              <div>
+                <em>Interior:</em>
+                <ul>
+                  {{#with interior}}
+                    <li>
+                      <b>seats: </b>
+                      {{seats.material}},
+                      {{seats.color}},
+                      {{#if seats.heated}}
+                        heated
+                      {{/if}},
+                      {{#if seats.ventilated}}
+                        ventilated
+                      {{/if}}
+                    </li>
+                    <li>
+                      <b>dashboard: </b>
+                      {{dashboard.material}},
+                      {{dashboard.color}},
+                      {{#with dashboard.display}}
+                        display (
+                        {{type}};
+                        {{size}};
+                        {{resolution}};
+                        {{#if touchscreen}}
+                          touchscreen
+                        {{/if}})
+                      {{/with}}
+                    </li>
+                    <li>
+                      <b>audio: </b>
+                      {{audio.system}},
+                      {{audio.speakers}},
+                      {{#if audio.subwoofer}}
+                        subwoofer
+                      {{/if}},
+                      {{#if audio.bluetooth}}
+                        bluetooth
+                      {{/if}},
+                      {{#if audio.USB}}
+                        USB
+                      {{/if}}
+                    </li>
+                  {{/with}}
+                </ul>
+              </div>
+              <div>
+                <em>Exterior:</em>
+                <ul>
+                  {{#with exterior}}
+                    <li>
+                      <b>wheels: </b>
+                      {{wheels.size}},
+                      {{wheels.type}},
+                      {{wheels.color}}
+                    </li>
+                    <li>
+                      <b>headlights: </b>
+                      {{headlights.type}},
+                      {{headlights.brightness}},
+                      {{#if headlights.automatic}}
+                        automatic
+                      {{/if}}
+                    </li>
+                    <li>
+                      <b>sunroof: </b>
+                      {{sunroof.type}},
+                      {{sunroof.size}},
+                      {{#if sunroof.automatic}}
+                        automatic
+                      {{/if}}
+                    </li>
+                  {{/with}}
+                </ul>
+              </div>
+              <div>
+                <em>Safety:</em>
+                <ul>
+                  {{#with safety}}
+                    <li>
+                      <b>airbags: </b>
+                      front ({{airbags.front}}), side ({{airbags.side}}),
+                      knee ({{airbags.knee}}), rear ({{airbags.rear}})
+                    </li>
+                    <li>
+                      <b>assistance: </b>
+                      {{#if
+                        assistance.blind_spot_monitoring
+                      }}
+                        blind spot monitoring
+                      {{/if}},
+                      {{#if
+                        assistance.rear_cross_traffic_alert
+                      }}
+                        rear cross traffic alert
+                      {{/if}},
+                      {{#if
+                        assistance.lane_departure_warning
+                      }}
+                        lane departure warning
+                      {{/if}},
+                      {{#if
+                        assistance.adaptive_cruise_control
+                      }}
+                        adaptive cruise control
+                      {{/if}},
+                      {{#if assistance.collision_warning}}
+                        collision warning
+                      {{/if}},
+                    </li>
+                  {{/with}}
+                </ul>
+              </div>
+            {{/with}}
+          </div>
+        </div>
+      </div>
+      <div class='accordion-item'>
+        <h2 class='accordion-header'>
+          <button
+            class='accordion-button collapsed'
+            type='button'
+            data-bs-toggle='collapse'
+            data-bs-target='#flush-collapseTwo'
+            aria-expanded='false'
+            aria-controls='flush-collapseTwo'
+          >
+            Engine
+          </button>
+        </h2>
+        <div
+          id='flush-collapseTwo'
+          class='accordion-collapse collapse'
+          data-bs-parent='#accordionFlushExample'
+        >
+          <div class='accordion-body'>
+            {{#with engine}}
+              <li>
+                <em>Type: </em>
+                {{type}}
+              </li>
+              <li>
+                <em>Displacement: </em>
+                {{displacement}}
+              </li>
+              <li>
+                <em>Horsepower: </em>
+                {{horsepower}}
+              </li>
+              <li>
+                <em>Torque: </em>
+                {{torque}}
+              </li>
+              <li>
+                <em>Transmission: </em>
+                {{transmission.type}},
+                {{transmission.gears}}
+              </li>
+            {{/with}}
+          </div>
+        </div>
+      </div>
+      <div class='accordion-item'>
+        <h2 class='accordion-header'>
+          <button
+            class='accordion-button collapsed'
+            type='button'
+            data-bs-toggle='collapse'
+            data-bs-target='#flush-collapseThree'
+            aria-expanded='false'
+            aria-controls='flush-collapseThree'
+          >
+            Fuel economy
+          </button>
+        </h2>
+        <div
+          id='flush-collapseThree'
+          class='accordion-collapse collapse'
+          data-bs-parent='#accordionFlushExample'
+        >
+          <div class='accordion-body'>
+            {{#with fuel_economy}}
+              <li>
+                <em>City: </em>
+                {{city}}
+              </li>
+              <li>
+                <em>Highway: </em>
+                {{highway}}
+              </li>
+              <li>
+                <em>Combined:</em>
+                {{combined}}
+              </li>
+            {{/with}}
+          </div>
+        </div>
+      </div>
+      <div class='accordion-item'>
+        <h2 class='accordion-header'>
+          <button
+            class='accordion-button collapsed'
+            type='button'
+            data-bs-toggle='collapse'
+            data-bs-target='#flush-collapseFour'
+            aria-expanded='false'
+            aria-controls='flush-collapseFour'
+          >
+            Price
+          </button>
+        </h2>
+        <div
+          id='flush-collapseFour'
+          class='accordion-collapse collapse'
+          data-bs-parent='#accordionFlushExample'
+        >
+          <div class='accordion-body'>
+            {{#with price}}
+              <li>
+                <em>Base: </em>
+                {{base}}
+              </li>
+              <li>
+                <em>Destination: </em>
+                {{destination}}
+              </li>
+              <li>
+                <em>Options: </em>
+                navigation ({{options.navigation}}),
+                moonroof ({{options.moonroof}}), premium
+                paint ({{options.premium_paint}})
+              </li>
+              <li>
+                <em>Total: </em>
+                {{total}}
+              </li>
+            {{/with}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
