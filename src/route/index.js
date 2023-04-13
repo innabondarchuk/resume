@@ -838,6 +838,23 @@ router.get('/bootstrapOld', function (req, res) {
 // router.get Створює нам один ентпоїнт
 
 //           ↙ тут вводимо шлях (PATH) до сторінки
+router.get('/bootstrapNav', function (req, res) {
+  // res.render генерує нам HTML сторінку
+
+  //            ↙ cюди вводимо назву файлу з сontainer
+  res.render('bootstrapNav', {
+    layout: 'bootstrap',
+  })
+  //                  ↑↑ сюди вводимо JSON дані
+})
+
+// ================================================================
+
+// ================================================================
+
+// router.get Створює нам один ентпоїнт
+
+//           ↙ тут вводимо шлях (PATH) до сторінки
 
 router.get('/task22', function (req, res) {
   // res.render генерує нам HTML сторінку
