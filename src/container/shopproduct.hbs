@@ -1,0 +1,153 @@
+{{! 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+
+<div>
+  
+  <nav>
+    <div class="row my-5 ms-1">
+      <div class="col-12">
+        <ol class='breadcrumb'>
+          {{#each breadcrumb}}
+            <li class="breadcrumb-item ">
+              
+                <a href="{{url}}" target="_blank" {{#if @last}}active{{/if}}>{{name}}</a>
+            </li>
+          {{/each}}
+        </ol>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="row">
+      {{#with productData}}
+        <div class='col-6'>
+          <div class="card">
+            <img class="card-img-top" src="{{img}}" alt="Product photo">
+            <div class="card-body">
+              {{#with info}}
+              <h5 class="card-title">{{title}}</h5>
+              <p>{{about}}</p>
+              <div class="display-6 mb-2">{{price}}</div>
+              {{#each category}}
+                {{#if isHot}}<button class="btn btn-warning rounded-pill">{{name}}</button>{{/if}}
+                {{#if isNew}}<button class="btn btn-primary rounded-pill">{{name}}</button>{{/if}}
+                {{#if isBonus}}<button class="btn btn-info rounded-pill">{{name}}</button>{{/if}}
+              {{/each}}
+              {{/with}}
+            </div>
+          </div>
+        </div>
+        <div class="col-5 ms-5">
+        
+          {{#with item}}
+            <div class="col-12">
+              <table class="table ">
+                <thead>
+                  <tr>
+                    {{#each head}}
+                      <th>{{this}}</th>
+                    {{/each}}
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each body}}
+                    <tr>
+                      <td>{{this}}</td>
+                      <td>{{this}}</td>
+                      <td>{{this}}</td>
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            </div>
+          {{/with}}
+        
+          {{#with param}}
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <div>{{title}}</div>
+                </div>
+                <ul class="list-group list-group-flush">
+                  {{#each list}}
+                  <li class="list-group-item">{{this}}</li>
+                  {{/each}}
+                </ul>
+              </div>
+            </div>
+          {{/with}}
+
+          {{#with alert}}
+            <div class="col-12 mt-5">
+              {{#if isError}}
+                <div class="alert alert-danger" role="alert">
+                {{text}}
+              </div>
+              {{/if}}
+            </div>
+          {{/with}}
+        </div>
+
+        <div class="col-12 my-5">
+          <div class="card">
+            <div class="card-body">
+              {{#each actionList}}
+                {{#if isWarning}}<button class="btn btn-warning me-3">{{name}}</button>{{/if}}
+                {{#if isError}}<button class="btn btn-outline-danger me-3">{{name}}</button>{{/if}}
+                {{#if isSuccess}}<button class="btn btn-success  me-3">{{name}}</button>{{/if}}
+                {{#if isGood}}<button class="btn btn-outline-success">{{name}}</button>{{/if}}
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      {{/with}}
+    </div>
+    <hr>
+    <div class="row my-5">
+      {{#with goodsOtherBlock}}
+        <div class="col-12"></div>
+          <h2 class="text-center">{{title}}</h2>
+          {{#each cards}}
+            <div class="col-4 g-2">
+              <div class="card">
+                <img class="card-img-top" src="{{image}}" alt="Product photo">
+                <div class="card-body">
+                  <h6>{{title}}
+                  <span>{{#if isHot}}<button class="btn btn-warning rounded-pill text-uppercase">Hot!</button>{{/if}}</span>
+                  <span>{{#if idNew}}<button class="btn btn-primary rounded-pill">Нове</button>{{/if}}</span>
+                  </h6>
+                  <p>{{description}}</p>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+      {{/with}}
+    </div>
+    <hr>
+    <div class="row my-5">
+      {{#with service}}
+        <div class="col-12">
+          <div class="card text-center text-bg-success">
+            <div class="card-body">
+              <h2>{{title}}</h2>
+              <p>{{description}}</p>
+              {{#each buttons}}
+                <a href="{{link}}" class="btn btn-primary" target="_blank" rel="{{rel}}">{{text}}</a>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      {{/with}}
+    </div>
+  </main>
+  <hr>
+  
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
