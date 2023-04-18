@@ -1,0 +1,51 @@
+<div>
+  <nav>
+    <div class='row my-5 ms-1'>
+      <div class='col-12'>
+        <ol class='breadcrumb'>
+          {{#each breadcrumb}}
+          <li class="breadcrumb-item">
+            <a href="{{url}}" {{#if @last}}active{{/if}} target="_blank">{{name}}</a>
+          </li>
+          {{/each}}
+        </ol>
+      </div>
+    </div>
+  </nav>
+
+  
+  <div class='row my-5'>
+    {{>shopcard}}
+  </div>
+
+  <div>
+    {{#with newsOtherBlock}}
+      <h2 class="text-center">{{title}}</h2>
+      <div class="row g-2 mb-5 col-12">
+        {{#each cards}}
+          <div class="col-3">
+            <div class="card text-bg-dark">
+              <div class="card-header">
+                <div>
+                  {{title}}
+                  <span>{{#if isTop}}<button class="btn btn-danger rounded-pill">Топ</button>{{/if}}</span>
+                  <span>{{#if idNew}}<button class="btn btn-success rounded-pill">Нова</button>{{/if}}</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <p>{{description}}</p>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    {{/with}}
+  </div>
+
+  <hr>
+
+  {{>shopaction}}
+  
+  <hr>
+  
+</div>
