@@ -22,26 +22,10 @@
 
   <main>
     <div class="row">
+      {{>shopcard}}
+
       {{#with productData}}
-        <div class='col-6'>
-          <div class="card">
-            <img class="card-img-top" src="{{img}}" alt="Product photo">
-            <div class="card-body">
-              {{#with info}}
-              <h5 class="card-title">{{title}}</h5>
-              <p>{{about}}</p>
-              <div class="display-6 mb-2">{{price}}</div>
-              {{#each category}}
-                {{#if isHot}}<button class="btn btn-warning rounded-pill">{{name}}</button>{{/if}}
-                {{#if isNew}}<button class="btn btn-primary rounded-pill">{{name}}</button>{{/if}}
-                {{#if isBonus}}<button class="btn btn-info rounded-pill">{{name}}</button>{{/if}}
-              {{/each}}
-              {{/with}}
-            </div>
-          </div>
-        </div>
         <div class="col-5 ms-5">
-        
           {{#with item}}
             <div class="col-12">
               <table class="table ">
@@ -108,7 +92,7 @@
     <hr>
     <div class="row my-5">
       {{#with goodsOtherBlock}}
-        <div class="col-12"></div>
+        <div class="col-12">
           <h2 class="text-center">{{title}}</h2>
           {{#each cards}}
             <div class="col-4 g-2">
@@ -124,25 +108,15 @@
               </div>
             </div>
           {{/each}}
-      {{/with}}
-    </div>
-    <hr>
-    <div class="row my-5">
-      {{#with service}}
-        <div class="col-12">
-          <div class="card text-center text-bg-success">
-            <div class="card-body">
-              <h2>{{title}}</h2>
-              <p>{{description}}</p>
-              {{#each buttons}}
-                <a href="{{link}}" class="btn btn-primary" target="_blank" rel="{{rel}}">{{text}}</a>
-              {{/each}}
-            </div>
-          </div>
         </div>
       {{/with}}
     </div>
+    <hr>
+  
+    {{>shopaction}}
+
   </main>
+
   <hr>
   
 </div>

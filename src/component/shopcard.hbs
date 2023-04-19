@@ -1,28 +1,29 @@
-<div class='row my-5'>
-  {{#with goodsOtherBlock}}
-    <div class='col-12'></div>
-    <h2 class='text-center'>{{title}}</h2>
-    {{#each cards}}
-      <div class='col-4 g-2'>
-        <div class='card'>
-          <img
-            class='card-img-top'
-            src='{{image}}'
-            alt='Product photo'
-          />
-          <div class='card-body'>
-            <h6>{{title}}
-              <span>{{#if isHot}}<button
-                    class='btn btn-warning rounded-pill text-uppercase'
-                  >Hot!</button>{{/if}}</span>
-              <span>{{#if idNew}}<button
-                    class='btn btn-primary rounded-pill'
-                  >Нове</button>{{/if}}</span>
-            </h6>
-            <p>{{description}}</p>
-          </div>
-        </div>
+{{#with productData}}
+  <div class='col-6'>
+    <div class='card'>
+      <img
+        class='card-img-top'
+        src='{{img}}'
+        alt='Product photo'
+      />
+      <div class='card-body'>
+        {{#with info}}
+          <h5 class='card-title'>{{title}}</h5>
+          <p>{{about}}</p>
+          <div class='display-6 mb-2'>{{price}}</div>
+          {{#each category}}
+            {{#if isHot}}<button
+                class='btn btn-warning rounded-pill'
+              >{{name}}</button>{{/if}}
+            {{#if isNew}}<button
+                class='btn btn-primary rounded-pill'
+              >{{name}}</button>{{/if}}
+            {{#if isBonus}}<button
+                class='btn btn-info rounded-pill'
+              >{{name}}</button>{{/if}}
+          {{/each}}
+        {{/with}}
       </div>
-    {{/each}}
-  {{/with}}
-</div>
+    </div>
+  </div>
+{{/with}}
