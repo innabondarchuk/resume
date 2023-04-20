@@ -1,0 +1,29 @@
+{{#with productData}}
+  <div class='col-6'>
+    <div class='card'>
+      <img
+        class='card-img-top'
+        src='{{img}}'
+        alt='Product photo'
+      />
+      <div class='card-body'>
+        {{#with info}}
+          <h5 class='card-title'>{{title}}</h5>
+          <p>{{about}}</p>
+          <div class='display-6 mb-2'>{{price}}</div>
+          {{#each category}}
+            {{#if isHot}}<button
+                class='btn btn-warning rounded-pill'
+              >{{name}}</button>{{/if}}
+            {{#if isNew}}<button
+                class='btn btn-primary rounded-pill'
+              >{{name}}</button>{{/if}}
+            {{#if isBonus}}<button
+                class='btn btn-info rounded-pill'
+              >{{name}}</button>{{/if}}
+          {{/each}}
+        {{/with}}
+      </div>
+    </div>
+  </div>
+{{/with}}

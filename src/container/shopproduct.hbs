@@ -1,0 +1,127 @@
+{{! 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+}}
+
+<div>
+  
+  <nav>
+    <div class="row my-5 ms-1">
+      <div class="col-12">
+        <ol class='breadcrumb'>
+          {{#each breadcrumb}}
+            <li class="breadcrumb-item ">
+              
+                <a href="{{url}}" target="_blank" {{#if @last}}active{{/if}}>{{name}}</a>
+            </li>
+          {{/each}}
+        </ol>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="row">
+      {{>shopcard}}
+
+      {{#with productData}}
+        <div class="col-5 ms-5">
+          {{#with item}}
+            <div class="col-12">
+              <table class="table ">
+                <thead>
+                  <tr>
+                    {{#each head}}
+                      <th>{{this}}</th>
+                    {{/each}}
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#each body}}
+                    <tr>
+                      {{#each this}}
+                        <td>{{this}}</td>
+                      {{/each}}
+                    </tr>
+                  {{/each}}
+                </tbody>
+              </table>
+            </div>
+          {{/with}}
+        
+          {{#with param}}
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <div>{{title}}</div>
+                </div>
+                <ul class="list-group list-group-flush">
+                  {{#each list}}
+                  <li class="list-group-item">{{this}}</li>
+                  {{/each}}
+                </ul>
+              </div>
+            </div>
+          {{/with}}
+
+          {{#with alert}}
+            <div class="col-12 mt-5">
+              {{#if isError}}
+                <div class="alert alert-danger" role="alert">
+                {{text}}
+              </div>
+              {{/if}}
+            </div>
+          {{/with}}
+        </div>
+
+        <div class="col-12 my-5">
+          <div class="card">
+            <div class="card-body">
+              {{#each actionList}}
+                {{#if isWarning}}<button class="btn btn-warning me-3">{{name}}</button>{{/if}}
+                {{#if isError}}<button class="btn btn-outline-danger me-3">{{name}}</button>{{/if}}
+                {{#if isSuccess}}<button class="btn btn-success  me-3">{{name}}</button>{{/if}}
+                {{#if isGood}}<button class="btn btn-outline-success">{{name}}</button>{{/if}}
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      {{/with}}
+    </div>
+    <hr>
+    <div>
+      {{#with goodsOtherBlock}}
+        <h2 class="text-center">{{title}}</h2>
+        <div class="row">
+          {{#each cards}}
+            <div class="col-4 g-2">
+              <div class="card">
+                <img class="card-img-top" src="{{image}}" alt="Product photo">
+                <div class="card-body">
+                  <h6>{{title}}
+                  <span>{{#if isHot}}<button class="btn btn-warning rounded-pill text-uppercase">Hot!</button>{{/if}}</span>
+                  <span>{{#if idNew}}<button class="btn btn-primary rounded-pill">Нове</button>{{/if}}</span>
+                  </h6>
+                  <p>{{description}}</p>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      {{/with}}
+    </div>
+    <hr>
+  
+    {{>shopaction}}
+
+  </main>
+
+  <hr>
+  
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
