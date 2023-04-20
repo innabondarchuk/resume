@@ -39,9 +39,9 @@
                 <tbody>
                   {{#each body}}
                     <tr>
-                      <td>{{this}}</td>
-                      <td>{{this}}</td>
-                      <td>{{this}}</td>
+                      {{#each this}}
+                        <td>{{this}}</td>
+                      {{/each}}
                     </tr>
                   {{/each}}
                 </tbody>
@@ -90,10 +90,10 @@
       {{/with}}
     </div>
     <hr>
-    <div class="row my-5">
+    <div>
       {{#with goodsOtherBlock}}
-        <div class="col-12">
-          <h2 class="text-center">{{title}}</h2>
+        <h2 class="text-center">{{title}}</h2>
+        <div class="row">
           {{#each cards}}
             <div class="col-4 g-2">
               <div class="card">

@@ -1994,6 +1994,7 @@ router.get('/shophome', function (req, res) {
 })
 
 // ================================================================
+
 // ================================================================
 
 // router.get Створює нам один ентпоїнт
@@ -2007,7 +2008,7 @@ router.get('/shopproduct', function (req, res) {
     layout: 'shop',
 
     page: {
-      title: 'Shopproduct page',
+      title: 'shopproduct page',
     },
 
     navigation: {
@@ -2218,5 +2219,6 @@ router.get('/shopproduct', function (req, res) {
 })
 
 // ================================================================
+
 // Підключаємо роутер до бек-енду
 module.exports = router
