@@ -1,0 +1,62 @@
+<main class='row g-2'>
+
+  {{#with header}}
+    <div class='row my-5'>
+      <h1>{{title}}</h1>
+      {{#with button}}
+        <div class='mt-2'>
+          <a
+            href='{{link}}'
+            class='btn btn-outline-secondary'
+            target='_blank'
+          >{{text}}</a>
+        </div>
+      {{/with}}
+    </div>
+  {{/with}}
+  <hr />
+  {{> cartGoodsItem}}
+  <hr>
+  {{#with total}}
+    <div class="col-12 mb-3">
+      <h3>{{title}}</h3>
+      <div class="display-6">{{amount}}</div>
+      <p>{{delivery}}</p>
+      {{#each buttons}}
+        <div class="my-2">
+          {{#if isSuccess}}<a href="{{link}}" class="btn btn-success">{{text}}</a>{{/if}}
+          {{#if isOutline}}<a href="{{link}}" class="btn btn-outline-success">{{text}}</a>{{/if}}
+        </div>
+      {{/each}}
+    </div>
+  {{/with}}
+  <hr>
+  {{> shopcard}}
+
+  <hr>
+
+  {{#with subscribe}}
+    <div class="col-12 my-5">
+      <div class='card text-bg-dark'>
+        <div class="card-body">
+          <h2>{{header}}</h2>
+          <p>
+            {{description}}
+          </p>
+          {{#each buttons}}
+            <div class="col-3 my-2">
+              <a
+                href='{{link}}'
+                class='btn btn-primary'
+                target='_blank'
+              >{{text}}</a>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  {{/with}}
+
+  <hr>
+  
+</main>
