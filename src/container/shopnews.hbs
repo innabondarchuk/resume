@@ -4,7 +4,27 @@
 
   
   <div class='row my-5'>
-    {{>shopcard}}
+    {{#with newsData}}
+      <div class='col-12 g-2'>
+        <div class='card'>
+          <img
+            class='card-img-top'
+            src='{{photo}}'
+            alt='Product photo'
+          />
+          <div class='card-body'>
+            {{#with head}}
+              <h3>{{heading}}</h3>
+              <p>{{description}}</p>
+            {{/with}}
+            {{#each body}}
+              <h5>{{title}}</h5>
+              <p>{{text}}</p>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    {{/with}}
   </div>
 
   <div>
