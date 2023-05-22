@@ -1,13 +1,21 @@
 <nav>
-    <div class='row my-5 ms-1'>
-      <div class='col-12'>
-        <ol class='breadcrumb'>
-          {{#each breadcrumb}}
-          <li class="breadcrumb-item">
-            <a href="{{url}}" {{#if @last}}active{{/if}} target="_blank">{{name}}</a>
+  <div class='row my-5 ms-1'>
+    <div class='col-12'>
+      <ol class='breadcrumb'>
+        {{#each breadcrumb}}
+          <li class='breadcrumb-item'>
+            {{#if url}}
+              <a
+                href='{{url}}'
+                class='text-decoration-none'
+                target='_blank'
+              >{{name}}</a>
+            {{else}}
+              {{name}}
+            {{/if}}
           </li>
-          {{/each}}
-        </ol>
-      </div>
+        {{/each}}
+      </ol>
     </div>
-  </nav>
+  </div>
+</nav>
